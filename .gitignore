@@ -1,4 +1,48 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.phar
+composer.lock
+
+# Sass
+.sass-cache
+
+# CSS
+/public/css/*.css
+/public/css/*.css.map
+
+# Bower
+/assets/bower-packages
+
+# Node
+/node_modules
+/npm-debug.log
+
+# bower
+/bower_components
+
+# Laravel
 /bootstrap/compiled.php
-.env.*.php
-.env.php
+/vendor
 .env
+Homestead.yaml
+
+# Template Caching
+/assets/js/templates.js
+
+# Public var files
+/public/_*
+/public/vendor/*
+
+# Testing
+/report/
+
+# phpstorm
+.idea
+
+# Storage
+/storage/tmp/*
+/storage/uploads/*
+/public/uploads/*
