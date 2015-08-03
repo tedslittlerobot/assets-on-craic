@@ -1,10 +1,10 @@
 <?php
 
-namespace Tcp\Support\Components;
+namespace Tlr\Assets;
 
 use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Filesystem\Filesystem;
-use Tcp\Support\Components\AssetManager;
+use Tlr\Assets\Components\AssetManager;
 
 class AssetRenderer
 {
@@ -12,7 +12,7 @@ class AssetRenderer
     /**
      * The asset manager instance
      *
-     * @var \Tcp\Support\Components\AssetManager
+     * @var \Tlr\Assets\Components\AssetManager
      */
     protected $assets;
 

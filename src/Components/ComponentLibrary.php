@@ -1,10 +1,10 @@
 <?php
 
-namespace Tcp\Support\Components;
+namespace Tlr\Assets\Components;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Expression;
-use Tcp\Support\Components\AssetManager;
+use Tlr\Assets\Components\AssetManager;
 
 class ComponentLibrary
 {
@@ -12,7 +12,7 @@ class ComponentLibrary
     /**
      * The asset manager instance
      *
-     * @var \Tcp\Support\Components\AssetManager
+     * @var \Tlr\Assets\Components\AssetManager
      */
     protected $assets;
 

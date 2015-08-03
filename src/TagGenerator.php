@@ -1,9 +1,9 @@
 <?php
 
-namespace Tcp\Support\Components;
+namespace Tlr\Assets;
 
 use Illuminate\View\Expression;
-use Tcp\Support\Components\AssetManager;
+use Tlr\Assets\Components\AssetManager;
 
 class TagGenerator
 {
@@ -11,7 +11,7 @@ class TagGenerator
     /**
      * The asset manager instnace
      *
-     * @var \Tcp\Support\Components\AssetManager
+     * @var \Tlr\Assets\Components\AssetManager
      */
     protected $assets;
 
@@ -49,12 +49,25 @@ class TagGenerator
      */
     public function tag($format, $route)
     {
-        $query = $this->compileDependanciesQuery($this->assets->active());
-        $url = route($route, [$query]);
+        $url = $this->route(
+            $route,
+            $this->assets->active()
+        );
 
         return $query ?
             $this->viewExpression( sprintf($format, $url) ) :
             null;
+    }
+
+    /**
+     * Generate the route for the resource
+     *
+     * @param  string $name
+     * @param  array $query
+     * @return string
+     */
+    public function route($name, array $query) {
+        return route($name, $this->compileDependanciesQuery($query));
     }
 
     /**

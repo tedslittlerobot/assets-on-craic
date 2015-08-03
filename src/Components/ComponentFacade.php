@@ -1,11 +1,11 @@
 <?php
 
-namespace Tcp\Support\Components;
+namespace Tlr\Assets\Components;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Tcp\Support\Components\ComponentLibrary
+ * @see \Tlr\Assets\Components\ComponentLibrary
  */
 class ComponentFacade extends Facade
 {

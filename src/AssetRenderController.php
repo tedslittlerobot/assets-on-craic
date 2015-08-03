@@ -1,6 +1,6 @@
 <?php
 
-namespace Tcp\Support\Components;
+namespace Tlr\Assets;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -11,7 +11,7 @@ class AssetRenderController extends Controller
     /**
      * The asset renderer
      *
-     * @var \Tcp\Support\Components\AssetRenderer
+     * @var \Tlr\Assets\Components\AssetRenderer
      */
     protected $renderer;
 

@@ -5,8 +5,9 @@ namespace Tlr\Assets\Definitions;
 use Assetic\Asset\AssetInterface;
 use Assetic\Asset\FileAsset;
 use Assetic\Asset\GlobAsset;
+use Assetic\Filter\FilterInterface;
 
-class Task
+class Batch
 {
 
 	/**
@@ -56,7 +57,7 @@ class Task
     /**
      * Add an assetic file
      *
-     * @param AssetCollectionInterface $file
+     * @param AssetInterface $file
      */
     public function addFile(AssetInterface $file) {
     	$this->files[] = $file;
@@ -64,9 +65,14 @@ class Task
     	return $this;
     }
 
-    public function filter($name) {
-    	// @todo set filter config
-    	$this->filters[] = $name;
+    /**
+     * Add a filter
+     * @param  string $name
+     * @return
+     */
+    public function filter(FilterInterface $filter) {
+    	$this->filters[] = $filter;
+
         return $this;
     }
 }

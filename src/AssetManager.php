@@ -1,6 +1,6 @@
 <?php
 
-namespace Tcp\Support\Components;
+namespace Tlr\Assets;
 
 class AssetManager
 {
@@ -38,7 +38,7 @@ class AssetManager
      *
      * @param  string   $name
      * @param  callable $config
-     * @return \Tcp\Support\Components\AssetManager
+     * @return \Tlr\Assets\Components\AssetManager
      */
     public function register($name, callable $config)
     {
