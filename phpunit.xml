@@ -11,7 +11,7 @@
          syntaxCheck="false">
     <testsuites>
         <testsuite name="assets">
-            <directory>./tests/unit/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
     <filter>
