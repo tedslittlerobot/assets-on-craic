@@ -89,7 +89,23 @@ class AssetResolver
      * @return bool
      */
     protected function trackedOrResolved(Asset $asset) {
-        return in_array($asset, $this->resolved) || in_array($asset, $this->tracked);
+        return $this->inArray($asset, $this->resolved) || $this->inArray($asset, $this->tracked);
+    }
+
+    /**
+     * An override for in_array, fixing a nesting level with some php internal
+     * functions
+     *
+     * @param  mixed  $needle
+     * @param  array  $haystack
+     * @return bool
+     */
+    protected function inArray($needle, array $haystack) {
+        foreach ($haystack as $item) {
+            if ($item === $needle) return true;
+        }
+
+        return false;
     }
 
     /**
