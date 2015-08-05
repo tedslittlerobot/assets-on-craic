@@ -31,8 +31,7 @@ class Asset
 	 * @param  string|array $names
 	 * @return Tlr\Assets\Definitions\Asset
 	 */
-	public function dependsOn($names)
-	{
+	public function dependsOn($names) {
 		$this->dependancies = array_merge($this->dependancies, (array)$names);
 
 		return $this;
@@ -54,5 +53,32 @@ class Asset
      */
     public function style() {
         return $this->styles[] = new Batch;
+    }
+
+    /**
+     * Get the asset's dependancies
+     *
+     * @return mixed
+     */
+    public function dependancies() {
+        return $this->dependancies;
+    }
+
+    /**
+     * Get the asset's scripts
+     *
+     * @return mixed
+     */
+    public function scripts() {
+        return $this->scripts;
+    }
+
+    /**
+     * Get the asset's styles
+     *
+     * @return mixed
+     */
+    public function styles() {
+        return $this->styles;
     }
 }
