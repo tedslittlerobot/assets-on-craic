@@ -40,11 +40,13 @@ class AssetResolver
      */
     public function resolve($name)
     {
-        $asset = $this->tracked[] = $this->assets->get($name);
+        $asset = $this->assets->get($name);
 
         if ($this->trackedOrResolved($asset)) {
             return $this;
         }
+
+        $this->tracked[] = $asset;
 
         // resolve dependancies
         foreach ($asset->dependancies() as $dependancy) {
@@ -72,12 +74,21 @@ class AssetResolver
     }
 
     /**
+     * Get the resolved assets
+     *
+     * @return array
+     */
+    public function assets() {
+        return $this->resolved;
+    }
+
+    /**
      * Determine if the given asset is tracked or resolved
      *
      * @param  \Tlr\Assets\Definitions\Asset  $asset
      * @return bool
      */
-    public function trackedOrResolved(Asset $asset) {
+    protected function trackedOrResolved(Asset $asset) {
         return in_array($asset, $this->resolved) || in_array($asset, $this->tracked);
     }
 
