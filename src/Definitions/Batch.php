@@ -10,28 +10,28 @@ use Assetic\Filter\FilterInterface;
 class Batch
 {
 
-	/**
-	 * The files to filter
-	 *
-	 * @var array
-	 */
-	protected $files = [];
+    /**
+     * The files to filter
+     *
+     * @var array
+     */
+    protected $files = [];
 
-	/**
-	 * The filters
-	 *
-	 * @var array
-	 */
-	protected $filters = [];
+    /**
+     * The filters
+     *
+     * @var array
+     */
+    protected $filters = [];
 
-	/**
-	 * Add a file
-	 *
-	 * @param  string $file
-	 * @return
-	 */
+    /**
+     * Add a file
+     *
+     * @param  string $file
+     * @return
+     */
     public function file($file) {
-    	return $this->addFile(new FileAsset($glob));
+        return $this->addFile(new FileAsset($glob));
     }
 
     /**
@@ -41,7 +41,7 @@ class Batch
      * @return
      */
     public function glob($glob) {
-    	return $this->addFile(new GlobAsset($glob));
+        return $this->addFile(new GlobAsset($glob));
     }
 
     /**
@@ -51,7 +51,7 @@ class Batch
      * @return
      */
     public function link($url) {
-    	return $this->addFile(new HttpAsset($url));
+        return $this->addFile(new HttpAsset($url));
     }
 
     /**
@@ -60,9 +60,9 @@ class Batch
      * @param AssetInterface $file
      */
     public function addFile(AssetInterface $file) {
-    	$this->files[] = $file;
+        $this->files[] = $file;
 
-    	return $this;
+        return $this;
     }
 
     /**
@@ -71,7 +71,7 @@ class Batch
      * @return
      */
     public function filter(FilterInterface $filter) {
-    	$this->filters[] = $filter;
+        $this->filters[] = $filter;
 
         return $this;
     }
