@@ -6,6 +6,13 @@ class AssetManager
 {
 
     /**
+     * The asset collection instance
+     *
+     * @var \Tlr\Assets\AssetCollection
+     */
+    protected $assets;
+
+    /**
      * The active assets
      *
      * @var array
@@ -13,48 +20,14 @@ class AssetManager
     protected $active = [];
 
     /**
-     * The config callables
+     * The active assets
      *
      * @var array
      */
-    protected $config = [];
+    protected $resolved = [];
 
-    /**
-     * The asset cache
-     *
-     * @var array
-     */
-    protected $configCache = [];
-
-    /**
-     * The cached resolved assets
-     *
-     * @var array
-     */
-    protected $resolutionCache = [];
-
-    /**
-     * Register a JS asset
-     *
-     * @param  string   $name
-     * @param  callable $config
-     * @return \Tlr\Assets\Components\AssetManager
-     */
-    public function register($name, callable $config)
-    {
-        $this->config[$name] = $config;
-
-        return $this;
-    }
-
-    /**
-     * Get the list of config callables
-     *
-     * @return array
-     */
-    public function getConfigCallables()
-    {
-        return $this->config;
+    public function __construct(AssetCollection $assets) {
+        $this->assets = $assets;
     }
 
     /**
@@ -107,26 +80,24 @@ class AssetManager
      */
     public function resolve($name)
     {
-        if (isset($this->resolutionCache[$name])) {
-            return $this->resolutionCache[$name];
+        if (isset($this->resolved[$name])) {
+            return $this->resolved[$name];
         }
 
-        list($scripts, $styles, $dependancies) = $this->resolveConfig($name);
+        $asset = $this->assets->get($name);
 
         $resolvedScripts = [];
         $resolvedStyles  = [];
 
         // resolve dependancies
-        list($resolvedScripts, $resolvedStyles) = $this->resolveAndMerge(
-            $dependancies->get(), $resolvedScripts, $resolvedStyles
-        );
+        list($resolvedScripts, $resolvedStyles) = $this->resolveAndMerge($asset);
 
         // add files
         $resolvedScripts = array_merge($resolvedScripts, $scripts->get());
         $resolvedStyles  = array_merge($resolvedStyles, $styles->get());
 
         // cache and return
-        return $this->resolutionCache[$name] = [
+        return $this->resolved[$name] = [
             array_values( array_unique($resolvedScripts) ),
             array_values( array_unique($resolvedStyles) )
         ];
@@ -140,7 +111,7 @@ class AssetManager
      * @param  array  $styles
      * @return array
      */
-    protected function resolveAndMerge(array $names, array $scripts = [], array $styles = [])
+    protected function resolveAndMerge(array $names, Asset $asset)
     {
         foreach ($names as $name) {
             list($derivedScripts, $derivedStyles) = $this->resolve($name);
@@ -169,30 +140,6 @@ class AssetManager
             array_values( array_unique($scripts) ),
             array_values( array_unique($styles) )
         ];
-    }
-
-    /**
-     * Get the config options for an asset
-     *
-     * @param  string $name
-     * @return array
-     */
-    public function resolveConfig($name)
-    {
-        if (isset($this->configCache[$name])) {
-            return $this->configCache[$name];
-        }
-
-        // new config bags
-        $scripts       = new AssetBag;
-        $styles        = new AssetBag;
-        $dependancies  = new AssetBag;
-
-        // run the user config callable
-        call_user_func($this->config[$name], $scripts, $styles, $dependancies);
-
-        // cache and return
-        return $this->configCache[$name] = [$scripts, $styles, $dependancies];
     }
 
 }
