@@ -67,6 +67,7 @@ class Batch
 
     /**
      * Add a filter
+     *
      * @param \Assetic\Filter\FilterInterface $filter
      * @return
      */
@@ -74,5 +75,23 @@ class Batch
         $this->filters[] = $filter;
 
         return $this;
+    }
+
+    /**
+     * Get the files
+     *
+     * @return array
+     */
+    public function files() {
+        return $this->files;
+    }
+
+    /**
+     * Get the filters
+     *
+     * @return array
+     */
+    public function filters() {
+        return $this->filters;
     }
 }
