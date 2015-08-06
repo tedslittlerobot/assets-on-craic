@@ -31,13 +31,13 @@ class Batch
      * @return
      */
     public function file($file) {
-        return $this->addFile(new FileAsset($glob));
+        return $this->addFile(new FileAsset($file));
     }
 
     /**
      * Add a file glob
      *
-     * @param  string $file
+     * @param  string $glob
      * @return
      */
     public function glob($glob) {
@@ -47,7 +47,7 @@ class Batch
     /**
      * Add an http file
      *
-     * @param  string $file
+     * @param  string $url
      * @return
      */
     public function link($url) {
@@ -57,7 +57,7 @@ class Batch
     /**
      * Add an assetic file
      *
-     * @param AssetInterface $file
+     * @param \Assetic\Asset\AssetInterface $file
      */
     public function addFile(AssetInterface $file) {
         $this->files[] = $file;
@@ -67,7 +67,7 @@ class Batch
 
     /**
      * Add a filter
-     * @param  string $name
+     * @param \Assetic\Filter\FilterInterface $filter
      * @return
      */
     public function filter(FilterInterface $filter) {

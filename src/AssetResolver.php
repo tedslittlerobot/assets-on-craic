@@ -102,7 +102,9 @@ class AssetResolver
      */
     protected function inArray($needle, array $haystack) {
         foreach ($haystack as $item) {
-            if ($item === $needle) return true;
+            if ($item === $needle) {
+                return true;
+            }
         }
 
         return false;
