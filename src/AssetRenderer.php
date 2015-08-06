@@ -17,15 +17,9 @@ class AssetRenderer
      * @return string
      */
     public function scripts($assets) {
-        $outputs = [];
-
-        foreach ((array)$assets as $asset) {
-            foreach ($this->processBatches($asset->scripts()) as $compiled) {
-                $outputs[] = $compiled;
-            }
-        }
-
-        return $this->finishScripts($outputs);
+        return $this->finishScripts(
+            $this->processAssetList((array)$assets, 'scripts')
+        );
     }
 
     /**
@@ -35,15 +29,9 @@ class AssetRenderer
      * @return string
      */
     public function styles($assets) {
-        $outputs = [];
-
-        foreach ((array)$assets as $asset) {
-            foreach ($this->processBatches($asset->styles()) as $compiled) {
-                $outputs[] = $compiled;
-            }
-        }
-
-        return $this->finishStyles($outputs);
+        return $this->finishStyles(
+            $this->processAssetList((array)$assets, 'styles')
+        );
     }
 
     /////// HOOKS ///////
@@ -71,6 +59,25 @@ class AssetRenderer
     }
 
     /////// ASSETIC PROCESSING HELPERS ///////
+
+    /**
+     * Loop through the assets, and process one type of asset
+     *
+     * @param  array  $assets
+     * @param  string $type
+     * @return array
+     */
+    public function processAssetList(array $assets, $type) {
+        $outputs = [];
+
+        foreach ((array)$assets as $asset) {
+            foreach ($this->processBatches($asset->{$type}()) as $compiled) {
+                $outputs[] = $compiled;
+            }
+        }
+
+        return $outputs;
+    }
 
     /**
      * Proces the a batch of assets
