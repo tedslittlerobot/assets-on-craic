@@ -8,6 +8,8 @@ use Tlr\Assets\Definitions\Asset;
 
 class AssetRenderer
 {
+    /////// MAIN ENTRY POINTS ///////
+
     /**
      * Render an asset set's scripts
      *
@@ -18,13 +20,33 @@ class AssetRenderer
         $outputs = [];
 
         foreach ((array)$assets as $asset) {
-            foreach ($this->processScripts($asset) as $compiled) {
+            foreach ($this->processBatches($asset->scripts()) as $compiled) {
                 $outputs[] = $compiled;
             }
         }
 
         return $this->finishScripts($outputs);
     }
+
+    /**
+     * Render an asset set's styles
+     *
+     * @param  array $assets
+     * @return string
+     */
+    public function styles($assets) {
+        $outputs = [];
+
+        foreach ((array)$assets as $asset) {
+            foreach ($this->processBatches($asset->styles()) as $compiled) {
+                $outputs[] = $compiled;
+            }
+        }
+
+        return $this->finishStyles($outputs);
+    }
+
+    /////// HOOKS ///////
 
     /**
      * Finish up script rendering
@@ -34,29 +56,45 @@ class AssetRenderer
      */
     public function finishScripts(array $scripts) {
         // @todo - allow hook to minify on production
-        return $this->processAssetic($scripts, [], true);
+        return $this->processAssetic($scripts);
     }
 
     /**
-     * Proces the scripts of an asset
+     * Finish up script rendering
      *
-     * @param  Asset  $asset
-     * @return void
+     * @param  array  $scripts
+     * @return string
      */
-    public function processScripts(Asset $asset) {
-        foreach ($asset->scripts() as $script) {
-            yield $this->processAssetic($script->files(), $script->filters());
+    public function finishStyles(array $scripts) {
+        // @todo - allow hook to minify on production
+        return $this->processAssetic($scripts);
+    }
+
+    /////// ASSETIC PROCESSING HELPERS ///////
+
+    /**
+     * Proces the a batch of assets
+     *
+     * @param  array  $batches
+     * @return \Iterator
+     */
+    public function processBatches(array $batches) {
+        foreach ($batches as $batch) {
+            yield $this->processAssetic($batch->files(), $batch->filters(), false);
         }
     }
 
     /**
      * Process an assetic batch
      *
+     * Pass true to return the raw content, otherwise it will return an assetic
+     * asset representing the result
+     *
      * @param  array  $sources
      * @param  array  $filters
-     * @return \Assetic\Asset\StringAsset
+     * @return mixed
      */
-    public function processAssetic(array $sources, array $filters = [], $raw = false) {
+    public function processAssetic(array $sources, array $filters = [], $raw = true) {
         $content = (new Assetic($sources, $filters))->dump();
 
         return $raw ? $content : new StringAsset($content);
