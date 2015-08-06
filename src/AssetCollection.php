@@ -44,7 +44,7 @@ class AssetCollection
      * Get the config options for an asset
      *
      * @param  string $name
-     * @return array
+     * @return \Tlr\Assets\Definitions\Asset
      */
     public function get($name) {
         if ($this->hasBeenResolved($name)) {
