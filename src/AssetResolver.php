@@ -38,8 +38,7 @@ class AssetResolver
      * @param  string $name
      * @return \Tlr\Assets\AssetResolver
      */
-    public function resolve($name)
-    {
+    public function resolve($name) {
         $asset = $this->assets->get($name);
 
         if ($this->trackedOrResolved($asset)) {
@@ -64,8 +63,7 @@ class AssetResolver
      * @param  array  $names
      * @return \Tlr\Assets\AssetResolver
      */
-    public function resolveArray(array $names)
-    {
+    public function resolveArray(array $names) {
         foreach ($names as $name) {
             $this->resolve($name);
         }
