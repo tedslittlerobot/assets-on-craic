@@ -1,8 +1,8 @@
 <?php
 
-use Assetic\Asset\AssetCollection as Assetic;
 use Mockery as m;
 use Tlr\Assets\AssetCollection;
+use Tlr\Assets\AssetRenderer;
 use Tlr\Assets\AssetResolver;
 
 class ScriptRenderTest extends PHPUnit_Framework_TestCase {
@@ -14,6 +14,7 @@ class ScriptRenderTest extends PHPUnit_Framework_TestCase {
     public function setUp() {
         $this->assets = new AssetCollection;
         $this->resolver = new AssetResolver($this->assets);
+        $this->renderer = new AssetRenderer;
     }
 
     public function testBasicRender() {
@@ -25,17 +26,10 @@ class ScriptRenderTest extends PHPUnit_Framework_TestCase {
 
         $this->resolver->resolve('foo');
 
-        $output = [];
-
-        foreach ($this->resolver->assets() as $asset) {
-
-            foreach ($asset->scripts() as $script) {
-                $output[] = (new Assetic($script->files(), $script->filters()))->dump();
-            }
-
-        }
-
-        $this->assertEquals(file_get_contents(__DIR__ . '/fixtures/compiled.js'), implode('\n', $output));
+        $this->assertEquals(
+            file_get_contents(__DIR__ . '/fixtures/compiled.js'),
+            $this->renderer->scripts($this->resolver->assets())
+        );
     }
 
 }
