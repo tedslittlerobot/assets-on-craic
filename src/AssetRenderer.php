@@ -99,7 +99,7 @@ class AssetRenderer
      *
      * @param  array  $sources
      * @param  array  $filters
-     * @return mixed
+     * @return string|\Assetic\Asset\StringAsset
      */
     public function processAssetic(array $sources, array $filters = [], $raw = true) {
         $content = (new Assetic($sources, $filters))->dump();

@@ -49,7 +49,7 @@ class Asset
     /**
      * Add a style
      *
-     * @return \Batch
+     * @return \Tlr\Assets\Definitions\Batch
      */
     public function style() {
         return $this->styles[] = new Batch;
