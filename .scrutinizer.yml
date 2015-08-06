@@ -13,6 +13,5 @@ checks:
     newline_at_end_of_file: true
 
 tools:
-  tools:
-    php_cs_fixer:
-      config: { level: psr2 }
+  php_cs_fixer:
+    config: { level: psr2 }
