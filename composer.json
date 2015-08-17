@@ -15,7 +15,8 @@
     },
     "require": {
         "kriswallsmith/assetic": "1.2.*",
-        "illuminate/support": "5.*"
+        "illuminate/support": "5.*",
+        "illuminate/view": "5.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
