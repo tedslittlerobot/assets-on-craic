@@ -27,7 +27,7 @@ class ScriptRenderTest extends PHPUnit_Framework_TestCase {
         $this->resolver->resolve('foo');
 
         $this->assertEquals(
-            file_get_contents(__DIR__ . '/fixtures/compiled.js'),
+            file_get_contents(__DIR__ . '/fixtures/compiled-basic.js'),
             $this->renderer->scripts($this->resolver->assets())
         );
     }
