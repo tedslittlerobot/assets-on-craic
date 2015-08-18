@@ -13,7 +13,7 @@ class ComponentLibrary
      *
      * @var array
      */
-    public function $componentMap = [];
+    protected $components = [];
 
     /**
      * The asset manager instance
@@ -29,11 +29,10 @@ class ComponentLibrary
      */
     protected $container;
 
-    public function __construct(AssetManager $assets, Container $container, array $componentMap)
-    {
+    public function __construct(AssetManager $assets, Container $container, array $components) {
         $this->assets = $assets;
         $this->container = $container;
-        $this->componentMap = $componentMap;
+        $this->components = $components;
     }
 
     /**
@@ -44,7 +43,7 @@ class ComponentLibrary
      * @return mixed
      */
     public function component($name, array $input = []) {
-        $class = $this->componentMap;
+        $class = $this->components;
 
         $component = $this->container->make($class, $input);
 
@@ -60,8 +59,7 @@ class ComponentLibrary
      * @param  array  $arguments
      * @return \Illuminate\Contracts\Support\Htmlable
      */
-    public function __call($method, array $arguments)
-    {
+    public function __call($method, array $arguments) {
         return $this->component(
             snake_case($method, '-'),
             array_get($arguments, 1, [])

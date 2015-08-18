@@ -30,8 +30,7 @@ class BladeCompilerExtensions
      *
      * @return string
      */
-    public function wrapComponent($expression)
-    {
+    public function wrapComponent($expression) {
         return "<?php \$component = app('components')->component{$expression}->wrapContent(); ?>";
     }
 
@@ -40,8 +39,7 @@ class BladeCompilerExtensions
      *
      * @return string
      */
-    public function endWrapComponent($expression)
-    {
+    public function endWrapComponent($expression) {
         return '<?php $component->endWrapContent(); echo e($component); unset($component); ?>';
     }
 
