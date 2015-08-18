@@ -57,8 +57,7 @@ trait FluentComponentTrait
      * @param mixed $content
      */
     public function setWrappedContent($content) {
-        return $this->set('content', $content);
-        // return $this->set('content', new Expression($content));
+        return $this->set('content', new Expression($content));
     }
 
     /**

@@ -17,7 +17,7 @@ class BladeCompilerExtensions
     /**
      * Register the compiler dircetives
      *
-     * @return string
+     * @return null
      */
     public function register(BladeCompiler $compiler) {
         foreach($this->directives as $directive) {
@@ -39,7 +39,7 @@ class BladeCompilerExtensions
      *
      * @return string
      */
-    public function endWrapComponent($expression) {
+    public function endWrapComponent() {
         return '<?php $component->endWrapContent(); echo e($component); unset($component); ?>';
     }
 

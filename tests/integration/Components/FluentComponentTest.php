@@ -44,14 +44,14 @@ class FluentComponentTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testWrapContent() {
-
         $this->component->wrapContent();
-
             echo 'foo';
-
         $this->component->endWrapContent();
 
-        $this->assertEquals('foo', $this->component->get('content'));
+        $content = $this->component->get('content');
+
+        $this->assertInstanceOf(\Illuminate\View\Expression::class, $content);
+        $this->assertSame('foo', $content->toHtml());
     }
 
 }

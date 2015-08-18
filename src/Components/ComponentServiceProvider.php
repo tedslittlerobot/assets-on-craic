@@ -24,7 +24,7 @@ class ComponentServiceProvider extends ServiceProvider
             return new ComponentLibrary(
                 $this->app->make(AssetManager::class),
                 $this->app,
-                $this->components,
+                $this->components
             );
         });
 

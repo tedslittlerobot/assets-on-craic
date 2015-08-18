@@ -14,7 +14,7 @@ class AssetRenderer
      * Render an asset set's scripts
      *
      * @param  array $assets
-     * @return string
+     * @return string|\Assetic\Asset \Assetic\Asse\Assetic\Asset\StringAsset
      */
     public function scripts($assets) {
         return $this->finishScripts(
@@ -26,7 +26,7 @@ class AssetRenderer
      * Render an asset set's styles
      *
      * @param  array $assets
-     * @return string
+     * @return string|\Assetic\Asset\StringAsset
      */
     public function styles($assets) {
         return $this->finishStyles(
@@ -40,7 +40,7 @@ class AssetRenderer
      * Finish up script rendering
      *
      * @param  array  $scripts
-     * @return string
+     * @return string|\Assetic\Asset\StringAsset
      */
     public function finishScripts(array $scripts) {
         // @todo - allow hook to minify on production
@@ -51,7 +51,7 @@ class AssetRenderer
      * Finish up script rendering
      *
      * @param  array  $scripts
-     * @return string
+     * @return string|\Assetic\Asset\StringAsset
      */
     public function finishStyles(array $scripts) {
         // @todo - allow hook to minify on production

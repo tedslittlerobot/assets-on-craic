@@ -13,7 +13,7 @@ class ComponentLibrary
      *
      * @var array
      */
-    protected $components = [];
+    protected $components;
 
     /**
      * The asset manager instance
@@ -29,10 +29,23 @@ class ComponentLibrary
      */
     protected $container;
 
-    public function __construct(AssetManager $assets, Container $container, array $components) {
+    public function __construct(AssetManager $assets, Container $container, array $components = []) {
         $this->assets = $assets;
         $this->container = $container;
         $this->components = $components;
+    }
+
+    /**
+     * Register a component
+     *
+     * @param  string $name
+     * @param  string $class
+     * @return \Tlr\Assets\Components\ComponentLibrary
+     */
+    public function register($name, $class) {
+        $this->components[$name] = $class;
+
+        return $this;
     }
 
     /**
