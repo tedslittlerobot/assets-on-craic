@@ -9,15 +9,18 @@ class BladeCompilerTest extends PHPUnit_Framework_TestCase {
     }
 
     public function setUp() {
-        $this->callback = function($value) {
-            return $value;
-        };
+        $this->compiler = new \Illuminate\View\Compilers\BladeCompiler(
+            $this->filesystem = m::mock(\Illuminate\Filesystem\Filesystem::class),
+            null
+        );
     }
 
     public function testOpeningTag() {
+        (new Tlr\Assets\Components\BladeCompilerExtensions)->register($this->compiler);
+
         $this->assertEquals(
             file_get_contents(__DIR__ . '/fixtures/compiled.php'),
-            call_user_func($this->callback, file_get_contents(__DIR__ . '/fixtures/compile.blade.php'))
+            $this->compiler->compileString(file_get_contents(__DIR__ . '/fixtures/compile.blade.php'))
         );
     }
 

@@ -26,7 +26,6 @@ class FluentComponentTest extends PHPUnit_Framework_TestCase {
         $this->component->append('foo', 'bar');
 
         $this->assertEquals(['bar'], $this->component->get('foo'));
-
         $this->component->append('foo', 'baz');
 
         $this->assertEquals(['bar', 'baz'], $this->component->get('foo'));

@@ -1,4 +1,4 @@
 
-@open()
+<?php $component = app('components')->component('foo')->wrapContent(); ?>
 
-@close
+<?php $component->endWrapContent(); echo e($component); unset($component); ?>

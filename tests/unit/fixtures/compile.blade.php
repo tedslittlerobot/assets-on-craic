@@ -1,4 +1,4 @@
 
-@open()
+@wrapComponent('foo')
 
-@close
+@endWrapComponent
