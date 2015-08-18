@@ -21,8 +21,10 @@ class ComponentServiceProvider extends ServiceProvider
      */
     public function register() {
         $this->app->singleton(ComponentLibrary::class, function() {
+            $assets = $this->app->make(AssetManager::class);
+
             return new ComponentLibrary(
-                $this->app->make(AssetManager::class),
+                $assets,
                 $this->app,
                 $this->components
             );

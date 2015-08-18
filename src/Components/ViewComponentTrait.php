@@ -33,7 +33,6 @@ trait ViewComponentTrait
     /**
      * Get the view name
      *
-     * @param  string $name
      * @return string
      */
     public function viewName() {
