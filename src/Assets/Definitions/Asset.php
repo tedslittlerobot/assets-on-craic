@@ -1,6 +1,6 @@
 <?php
 
-namespace Tlr\Assets\Definitions;
+namespace Tlr\Assets\Assets\Definitions;
 
 class Asset
 {
@@ -29,7 +29,7 @@ class Asset
      * Add an asset dependancy
      *
      * @param  string|array $names
-     * @return \Tlr\Assets\Definitions\Asset
+     * @return \Tlr\Assets\Assets\Definitions\Asset
      */
     public function dependsOn($names) {
         $this->dependancies = array_merge($this->dependancies, (array)$names);
@@ -40,7 +40,7 @@ class Asset
     /**
      * Add a script
      *
-     * @return \Tlr\Assets\Definitions\Batch
+     * @return \Tlr\Assets\Assets\Definitions\Batch
      */
     public function script() {
         return $this->scripts[] = new Batch;
@@ -49,7 +49,7 @@ class Asset
     /**
      * Add a style
      *
-     * @return \Tlr\Assets\Definitions\Batch
+     * @return \Tlr\Assets\Assets\Definitions\Batch
      */
     public function style() {
         return $this->styles[] = new Batch;

@@ -1,9 +1,9 @@
 <?php
 
 use Mockery as m;
-use Tlr\Assets\AssetCollection;
-use Tlr\Assets\AssetResolver;
-use Tlr\Assets\Definitions\Asset;
+use Tlr\Assets\Assets\AssetCollection;
+use Tlr\Assets\Assets\AssetResolver;
+use Tlr\Assets\Assets\Definitions\Asset;
 
 class AssetResolverTest extends PHPUnit_Framework_TestCase {
 

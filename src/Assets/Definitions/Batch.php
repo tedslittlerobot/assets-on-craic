@@ -1,6 +1,6 @@
 <?php
 
-namespace Tlr\Assets\Definitions;
+namespace Tlr\Assets\Assets\Definitions;
 
 use Assetic\Asset\AssetInterface;
 use Assetic\Asset\FileAsset;

@@ -1,15 +1,15 @@
 <?php
 
-namespace Tlr\Assets;
+namespace Tlr\Assets\Assets;
 
-use Tlr\Assets\Definitions\Asset;
+use Tlr\Assets\Assets\Definitions\Asset;
 
 class AssetResolver
 {
     /**
      * The asset collection instance
      *
-     * @var \Tlr\Assets\AssetCollection
+     * @var \Tlr\Assets\Assets\AssetCollection
      */
     protected $assets;
 
@@ -21,7 +21,7 @@ class AssetResolver
     protected $resolved = [];
 
     /**
-     * A temporary variable for tracking active assets
+     * A temporary variable for tracking already processed assets
      *
      * @var array
      */
@@ -36,7 +36,7 @@ class AssetResolver
      * first item is the resolved scripts, and the second the resolved styles
      *
      * @param  string $name
-     * @return \Tlr\Assets\AssetResolver
+     * @return \Tlr\Assets\Assets\AssetResolver
      */
     public function resolve($name) {
         $asset = $this->assets->get($name);
@@ -61,7 +61,7 @@ class AssetResolver
      * Resolve an array of assets
      *
      * @param  array  $names
-     * @return \Tlr\Assets\AssetResolver
+     * @return \Tlr\Assets\Assets\AssetResolver
      */
     public function resolveArray(array $names) {
         foreach ($names as $name) {
@@ -83,7 +83,7 @@ class AssetResolver
     /**
      * Determine if the given asset is tracked or resolved
      *
-     * @param  \Tlr\Assets\Definitions\Asset  $asset
+     * @param  \Tlr\Assets\Assets\Definitions\Asset  $asset
      * @return bool
      */
     protected function trackedOrResolved(Asset $asset) {
@@ -111,7 +111,7 @@ class AssetResolver
     /**
      * Clear the resolver
      *
-     * @return \Tlr\Assets\AssetResolver
+     * @return \Tlr\Assets\Assets\AssetResolver
      */
     public function clear() {
         $this->tracked = $this->resolved = [];
