@@ -14,7 +14,7 @@ class AssetRenderer
      * Render an asset set's scripts
      *
      * @param  array $assets
-     * @return string|\Assetic\Asset \Assetic\Asse\Assetic\Asset\StringAsset
+     * @return string|\Assetic\Asset\StringAsset
      */
     public function scripts($assets) {
         return $this->finishScripts(

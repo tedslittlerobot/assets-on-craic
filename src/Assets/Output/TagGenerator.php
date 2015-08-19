@@ -3,7 +3,6 @@
 namespace Tlr\Assets\Assets\Output;
 
 use Illuminate\Contracts\Routing\UrlGenerator;
-use Illuminate\View\Expression;
 use Tlr\Assets\Assets\Components\AssetManager;
 
 class TagGenerator
@@ -31,7 +30,7 @@ class TagGenerator
     /**
      * Generate a script tag
      *
-     * @return \Illuminate\View\Expression
+     * @return string
      */
     public function scripts() {
         return $this->tag('<script src="%s"></script>', 'assets.js');
@@ -40,7 +39,7 @@ class TagGenerator
     /**
      * Generate a style tag
      *
-     * @return \Illuminate\View\Expression
+     * @return string
      */
     public function styles() {
         return $this->tag('<link rel="stylesheet" href="%s" />', 'assets.css');
@@ -59,9 +58,7 @@ class TagGenerator
             $this->assets->active()
         );
 
-        return $query ?
-            $this->viewExpression( sprintf($format, $url) ) :
-            null;
+        return sprintf($format, $url);
     }
 
     /**
@@ -86,16 +83,6 @@ class TagGenerator
         return implode('&', array_map(function($item) {
             return sprintf('sources[]=%s', urlencode($item));
         }, $deps));
-    }
-
-    /**
-     * Generate a view expression
-     *
-     * @param  string $tag
-     * @return \Illuminate\View\Expression
-     */
-    public function viewExpression($tag) {
-        return new Expression($tag);
     }
 
 }
