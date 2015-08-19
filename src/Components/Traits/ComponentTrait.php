@@ -11,7 +11,8 @@ trait ComponentTrait
      *
      * @return string
      */
-    public function toHtml() {
+    public function toHtml()
+    {
         return $this->view($this->data)->render();
     }
 
@@ -20,7 +21,8 @@ trait ComponentTrait
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return $this->toHtml();
     }
 

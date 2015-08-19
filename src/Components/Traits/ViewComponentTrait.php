@@ -26,7 +26,8 @@ trait ViewComponentTrait
      * @param  array  $mergeData
      * @return \Illuminate\View\View
      */
-    public function view($data = [], $mergeData = []) {
+    public function view($data = [], $mergeData = [])
+    {
         return view( $this->viewPrefix . '.' . $this->viewName(), $data, $mergeData);
     }
 
@@ -35,7 +36,8 @@ trait ViewComponentTrait
      *
      * @return string
      */
-    public function viewName() {
+    public function viewName()
+    {
         return $this->view ?: snake_case(get_class($this), '-');
     }
 

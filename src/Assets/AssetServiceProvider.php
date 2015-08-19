@@ -14,7 +14,8 @@ class AssetServiceProvider extends ServiceProvider
      */
     protected $uri = 'assets';
 
-    public function boot() {
+    public function boot()
+    {
         // @todo - register routes
     }
 
@@ -23,7 +24,8 @@ class AssetServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register() {
+    public function register()
+    {
         // @todo - register controller with uri
     }
 

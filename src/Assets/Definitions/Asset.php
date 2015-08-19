@@ -31,7 +31,8 @@ class Asset
      * @param  string|array $names
      * @return \Tlr\Assets\Assets\Definitions\Asset
      */
-    public function dependsOn($names) {
+    public function dependsOn($names)
+    {
         $this->dependancies = array_merge($this->dependancies, (array)$names);
 
         return $this;
@@ -42,7 +43,8 @@ class Asset
      *
      * @return \Tlr\Assets\Assets\Definitions\Batch
      */
-    public function script() {
+    public function script()
+    {
         return $this->scripts[] = new Batch;
     }
 
@@ -51,7 +53,8 @@ class Asset
      *
      * @return \Tlr\Assets\Assets\Definitions\Batch
      */
-    public function style() {
+    public function style()
+    {
         return $this->styles[] = new Batch;
     }
 
@@ -60,7 +63,8 @@ class Asset
      *
      * @return mixed
      */
-    public function dependancies() {
+    public function dependancies()
+    {
         return $this->dependancies;
     }
 
@@ -69,7 +73,8 @@ class Asset
      *
      * @return mixed
      */
-    public function scripts() {
+    public function scripts()
+    {
         return $this->scripts;
     }
 
@@ -78,7 +83,8 @@ class Asset
      *
      * @return mixed
      */
-    public function styles() {
+    public function styles()
+    {
         return $this->styles;
     }
 }

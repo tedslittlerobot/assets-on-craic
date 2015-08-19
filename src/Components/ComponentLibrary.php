@@ -29,7 +29,8 @@ class ComponentLibrary
      */
     protected $container;
 
-    public function __construct(AssetManager $assets, Container $container, array $components = []) {
+    public function __construct(AssetManager $assets, Container $container, array $components = [])
+    {
         $this->assets = $assets;
         $this->container = $container;
         $this->components = $components;
@@ -42,7 +43,8 @@ class ComponentLibrary
      * @param  string $class
      * @return \Tlr\Assets\Components\ComponentLibrary
      */
-    public function register($name, $class) {
+    public function register($name, $class)
+    {
         $this->components[$name] = $class;
 
         return $this;
@@ -55,7 +57,8 @@ class ComponentLibrary
      * @param  array   $input
      * @return mixed
      */
-    public function component($name, array $input = []) {
+    public function component($name, array $input = [])
+    {
         $class = $this->components[$name];
 
         $component = $this->container->make($class, $input);
@@ -72,7 +75,8 @@ class ComponentLibrary
      * @param  array  $arguments
      * @return \Illuminate\Contracts\Support\Htmlable
      */
-    public function __call($method, array $arguments) {
+    public function __call($method, array $arguments)
+    {
         return $this->component(
             snake_case($method, '-'),
             array_get($arguments, 1, [])

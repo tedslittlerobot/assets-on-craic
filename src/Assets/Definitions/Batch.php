@@ -30,7 +30,8 @@ class Batch
      * @param  string $file
      * @return
      */
-    public function file($file) {
+    public function file($file)
+    {
         return $this->addFile(new FileAsset($file));
     }
 
@@ -40,7 +41,8 @@ class Batch
      * @param  string $glob
      * @return
      */
-    public function glob($glob) {
+    public function glob($glob)
+    {
         return $this->addFile(new GlobAsset($glob));
     }
 
@@ -50,7 +52,8 @@ class Batch
      * @param  string $url
      * @return
      */
-    public function link($url) {
+    public function link($url)
+    {
         return $this->addFile(new HttpAsset($url));
     }
 
@@ -59,7 +62,8 @@ class Batch
      *
      * @param \Assetic\Asset\AssetInterface $file
      */
-    public function addFile(AssetInterface $file) {
+    public function addFile(AssetInterface $file)
+    {
         $this->files[] = $file;
 
         return $this;
@@ -71,7 +75,8 @@ class Batch
      * @param \Assetic\Filter\FilterInterface $filter
      * @return
      */
-    public function filter(FilterInterface $filter) {
+    public function filter(FilterInterface $filter)
+    {
         $this->filters[] = $filter;
 
         return $this;
@@ -82,7 +87,8 @@ class Batch
      *
      * @return array
      */
-    public function files() {
+    public function files()
+    {
         return $this->files;
     }
 
@@ -91,7 +97,8 @@ class Batch
      *
      * @return array
      */
-    public function filters() {
+    public function filters()
+    {
         return $this->filters;
     }
 }

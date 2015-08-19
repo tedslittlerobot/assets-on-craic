@@ -22,7 +22,8 @@ class TagGenerator
      */
     protected $url;
 
-    public function __construct(AssetManager $assets, UrlGenerator $url) {
+    public function __construct(AssetManager $assets, UrlGenerator $url)
+    {
         $this->assets = $assets;
         $this->url = $url;
     }
@@ -32,7 +33,8 @@ class TagGenerator
      *
      * @return string
      */
-    public function scripts() {
+    public function scripts()
+    {
         return $this->tag('<script src="%s"></script>', 'assets.js');
     }
 
@@ -41,7 +43,8 @@ class TagGenerator
      *
      * @return string
      */
-    public function styles() {
+    public function styles()
+    {
         return $this->tag('<link rel="stylesheet" href="%s" />', 'assets.css');
     }
 
@@ -52,7 +55,8 @@ class TagGenerator
      * @param  string $route
      * @return string
      */
-    public function tag($format, $route) {
+    public function tag($format, $route)
+    {
         $url = $this->route(
             $route,
             $this->assets->active()
@@ -68,7 +72,8 @@ class TagGenerator
      * @param  array $query
      * @return string
      */
-    public function route($name, array $query) {
+    public function route($name, array $query)
+    {
         return $this->url
             ->route($name, $this->compileDependanciesQuery($query));
     }
@@ -79,8 +84,10 @@ class TagGenerator
      * @param  array $deps
      * @return string
      */
-    public function compileDependanciesQuery(array $deps) {
-        return implode('&', array_map(function($item) {
+    public function compileDependanciesQuery(array $deps)
+    {
+        return implode('&', array_map(function($item)
+    {
             return sprintf('sources[]=%s', urlencode($item));
         }, $deps));
     }

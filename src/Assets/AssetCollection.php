@@ -27,7 +27,8 @@ class AssetCollection
      * @param  callable $config
      * @return void
      */
-    public function register($name, callable $config) {
+    public function register($name, callable $config)
+    {
         $this->items[$name] = $config;
     }
 
@@ -36,7 +37,8 @@ class AssetCollection
      *
      * @return array
      */
-    public function getCallables() {
+    public function getCallables()
+    {
         return $this->items;
     }
 
@@ -46,7 +48,8 @@ class AssetCollection
      * @param  string $name
      * @return \Tlr\Assets\Assets\Definitions\Asset
      */
-    public function get($name) {
+    public function get($name)
+    {
         if ($this->hasBeenResolved($name)) {
             return $this->getCached($name);
         }
@@ -60,7 +63,8 @@ class AssetCollection
      * @param  string  $name
      * @return boolean
      */
-    public function hasBeenResolved($name) {
+    public function hasBeenResolved($name)
+    {
         return isset($this->resolved[$name]);
 
     }
@@ -71,7 +75,8 @@ class AssetCollection
      * @param  string $name
      * @return \Tlr\Assets\Assets\Definitions\Asset
      */
-    public function getCached($name) {
+    public function getCached($name)
+    {
         return $this->resolved[$name];
     }
 
@@ -81,7 +86,8 @@ class AssetCollection
      * @param  string $name
      * @return \Tlr\Assets\Assets\Definitions\Asset
      */
-    public function resolve($name) {
+    public function resolve($name)
+    {
         // new config object
         $assetConfig = new Asset;
 

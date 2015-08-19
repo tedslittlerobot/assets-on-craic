@@ -21,7 +21,8 @@ class ActiveAssetCollection
      */
     protected $active = [];
 
-    public function __construct(AssetCollection $assets) {
+    public function __construct(AssetCollection $assets)
+    {
         $this->assets = $assets;
     }
 
@@ -30,7 +31,8 @@ class ActiveAssetCollection
      *
      * @return array
      */
-    public function active() {
+    public function active()
+    {
         return $this->active;
     }
 
@@ -39,7 +41,8 @@ class ActiveAssetCollection
      *
      * @return void
      */
-    public function clearActive() {
+    public function clearActive()
+    {
         $this->active = [];
     }
 
@@ -49,7 +52,8 @@ class ActiveAssetCollection
      * @param  string $name
      * @return void
      */
-    public function activate($name) {
+    public function activate($name)
+    {
         $this->active[] = $name;
     }
 

@@ -16,7 +16,8 @@ trait AssetComponentTrait
      *
      * @return array
      */
-    public function getAssets() {
+    public function getAssets()
+    {
         return (array)$this->assets;
     }
 

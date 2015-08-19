@@ -27,7 +27,8 @@ class AssetResolver
      */
     protected $tracked = [];
 
-    public function __construct(AssetCollection $assets) {
+    public function __construct(AssetCollection $assets)
+    {
         $this->assets = $assets;
     }
 
@@ -38,7 +39,8 @@ class AssetResolver
      * @param  string $name
      * @return \Tlr\Assets\Assets\AssetResolver
      */
-    public function resolve($name) {
+    public function resolve($name)
+    {
         $asset = $this->assets->get($name);
 
         if ($this->trackedOrResolved($asset)) {
@@ -63,7 +65,8 @@ class AssetResolver
      * @param  array  $names
      * @return \Tlr\Assets\Assets\AssetResolver
      */
-    public function resolveArray(array $names) {
+    public function resolveArray(array $names)
+    {
         foreach ($names as $name) {
             $this->resolve($name);
         }
@@ -76,7 +79,8 @@ class AssetResolver
      *
      * @return array
      */
-    public function assets() {
+    public function assets()
+    {
         return $this->resolved;
     }
 
@@ -86,7 +90,8 @@ class AssetResolver
      * @param  \Tlr\Assets\Assets\Definitions\Asset  $asset
      * @return bool
      */
-    protected function trackedOrResolved(Asset $asset) {
+    protected function trackedOrResolved(Asset $asset)
+    {
         return $this->inArray($asset, $this->resolved) || $this->inArray($asset, $this->tracked);
     }
 
@@ -98,7 +103,8 @@ class AssetResolver
      * @param  array  $haystack
      * @return bool
      */
-    protected function inArray($needle, array $haystack) {
+    protected function inArray($needle, array $haystack)
+    {
         foreach ($haystack as $item) {
             if ($item === $needle) {
                 return true;
@@ -113,7 +119,8 @@ class AssetResolver
      *
      * @return \Tlr\Assets\Assets\AssetResolver
      */
-    public function clear() {
+    public function clear()
+    {
         $this->tracked = $this->resolved = [];
 
         return $this;

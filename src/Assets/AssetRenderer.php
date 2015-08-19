@@ -16,7 +16,8 @@ class AssetRenderer
      * @param  array $assets
      * @return string|\Assetic\Asset\StringAsset
      */
-    public function scripts($assets) {
+    public function scripts($assets)
+    {
         return $this->finishScripts(
             $this->processAssetList((array)$assets, 'scripts')
         );
@@ -28,7 +29,8 @@ class AssetRenderer
      * @param  array $assets
      * @return string|\Assetic\Asset\StringAsset
      */
-    public function styles($assets) {
+    public function styles($assets)
+    {
         return $this->finishStyles(
             $this->processAssetList((array)$assets, 'styles')
         );
@@ -42,7 +44,8 @@ class AssetRenderer
      * @param  array  $scripts
      * @return string|\Assetic\Asset\StringAsset
      */
-    public function finishScripts(array $scripts) {
+    public function finishScripts(array $scripts)
+    {
         // @todo - allow hook to minify on production
         return $this->processAssetic($scripts);
     }
@@ -53,7 +56,8 @@ class AssetRenderer
      * @param  array  $scripts
      * @return string|\Assetic\Asset\StringAsset
      */
-    public function finishStyles(array $scripts) {
+    public function finishStyles(array $scripts)
+    {
         // @todo - allow hook to minify on production
         return $this->processAssetic($scripts);
     }
@@ -67,7 +71,8 @@ class AssetRenderer
      * @param  string $type
      * @return array
      */
-    public function processAssetList(array $assets, $type) {
+    public function processAssetList(array $assets, $type)
+    {
         $outputs = [];
 
         foreach ((array)$assets as $asset) {
@@ -85,7 +90,8 @@ class AssetRenderer
      * @param  array  $batches
      * @return \Iterator
      */
-    public function processBatches(array $batches) {
+    public function processBatches(array $batches)
+    {
         foreach ($batches as $batch) {
             yield $this->processAssetic($batch->files(), $batch->filters(), false);
         }
@@ -101,7 +107,8 @@ class AssetRenderer
      * @param  array  $filters
      * @return string|\Assetic\Asset\StringAsset
      */
-    public function processAssetic(array $sources, array $filters = [], $raw = true) {
+    public function processAssetic(array $sources, array $filters = [], $raw = true)
+    {
         $content = (new Assetic($sources, $filters))->dump();
 
         return $raw ? $content : new StringAsset($content);

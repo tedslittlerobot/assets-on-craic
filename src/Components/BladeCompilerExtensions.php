@@ -19,7 +19,8 @@ class BladeCompilerExtensions
      *
      * @return null
      */
-    public function register(BladeCompiler $compiler) {
+    public function register(BladeCompiler $compiler)
+    {
         foreach($this->directives as $directive) {
             $compiler->directive($directive, [$this, $directive]);
         }
@@ -30,7 +31,8 @@ class BladeCompilerExtensions
      *
      * @return string
      */
-    public function wrapComponent($expression) {
+    public function wrapComponent($expression)
+    {
         return "<?php \$component = app('components')->component{$expression}->wrapContent(); ?>";
     }
 
@@ -39,7 +41,8 @@ class BladeCompilerExtensions
      *
      * @return string
      */
-    public function endWrapComponent() {
+    public function endWrapComponent()
+    {
         return '<?php $component->endWrapContent(); echo e($component); unset($component); ?>';
     }
 
