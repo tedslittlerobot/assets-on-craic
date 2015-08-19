@@ -1,6 +1,6 @@
 <?php
 
-namespace Tlr\Assets\Components;
+namespace Tlr\Assets\Components\Traits;
 
 trait ComponentTrait
 {
