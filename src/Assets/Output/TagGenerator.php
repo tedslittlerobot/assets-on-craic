@@ -21,7 +21,7 @@ class TagGenerator
      *
      * @var \Illuminate\Contracts\Routing\UrlGenerator
      */
-    protected $assets;
+    protected $url;
 
     public function __construct(AssetManager $assets, UrlGenerator $url) {
         $this->assets = $assets;

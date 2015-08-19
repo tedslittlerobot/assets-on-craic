@@ -51,12 +51,12 @@ class ComponentLibrary
     /**
      * Construct a component
      *
-     * @param  string $name
-     * @param  array  $input
+     * @param  string  $name
+     * @param  array   $input
      * @return mixed
      */
     public function component($name, array $input = []) {
-        $class = $this->components;
+        $class = $this->components[$name];
 
         $component = $this->container->make($class, $input);
 
