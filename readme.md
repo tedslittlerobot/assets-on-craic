@@ -1,6 +1,8 @@
 Display Suite
 =============
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/tedslittlerobot/display-suite/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/tedslittlerobot/display-suite/?branch=master)
+
 Display utilities for Laravel V.
 
 There are two parts to this package (click each one for more details):
