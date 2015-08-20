@@ -41,6 +41,10 @@ class AssetResolver
      */
     public function resolve($name)
     {
+        if (is_array($name)) {
+            return $this->resolveArray($name);
+        }
+
         $asset = $this->assets->get($name);
 
         if ($this->trackedOrResolved($asset)) {
