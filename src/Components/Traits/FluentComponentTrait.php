@@ -106,7 +106,7 @@ trait FluentComponentTrait
             return $this;
         }
 
-        if (! is_array($this->data[$key])) {
+        if (!is_array($this->data[$key])) {
             $this->data[$key] = (array)$this->data[$key];
         }
 

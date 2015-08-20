@@ -3,8 +3,8 @@
 namespace Tlr\Display\Assets;
 
 use Illuminate\Support\ServiceProvider;
-use Tlr\Assets\Assets\ActiveAssetCollection;
-use Tlr\Assets\Assets\AssetCollection;
+use Tlr\Display\Assets\ActiveAssetCollection;
+use Tlr\Display\Assets\AssetCollection;
 
 class AssetServiceProvider extends ServiceProvider
 {

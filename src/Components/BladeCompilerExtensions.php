@@ -21,7 +21,7 @@ class BladeCompilerExtensions
      */
     public function register(BladeCompiler $compiler)
     {
-        foreach($this->directives as $directive) {
+        foreach ($this->directives as $directive) {
             $compiler->directive($directive, [$this, $directive]);
         }
     }

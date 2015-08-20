@@ -28,7 +28,7 @@ trait ViewComponentTrait
      */
     public function view($data = [], $mergeData = [])
     {
-        return view( $this->viewPrefix . '.' . $this->viewName(), $data, $mergeData);
+        return view($this->viewPrefix . '.' . $this->viewName(), $data, $mergeData);
     }
 
     /**

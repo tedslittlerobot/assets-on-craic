@@ -19,7 +19,7 @@ class AssetRenderController extends Controller
     /**
      * The asset resolver
      *
-     * @var \Tlr\Assets\Assets\AssetResolver
+     * @var \Tlr\Display\Assets\AssetResolver
      */
     protected $assets;
 
