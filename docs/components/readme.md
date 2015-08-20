@@ -7,7 +7,7 @@ Add the following to your app/Providers folder:
 
 `ComponentServiceProvider.php`
 ```php
-?php
+<?php
 
 namespace App\Providers;
 
@@ -38,7 +38,7 @@ And add it to your services providers array in `config/app.php`:
 Make a new class - let's say `App\Components\Button` for a simple example.
 
 ```php
-?php
+<?php
 
 namespace App\Components;
 
