@@ -38,7 +38,9 @@ class AssetRenderController extends Controller
      */
     public function scripts(Request $request)
     {
-        $assets = $this->assets->resolveArray((array)$request->input('sources', []));
+        $assets = $this->assets
+            ->resolveArray((array)$request->input('sources', []))
+            ->assets();
 
         return response(
             $this->renderer->scripts( $assets ),
@@ -57,7 +59,9 @@ class AssetRenderController extends Controller
      */
     public function styles(Request $request)
     {
-        $assets = $this->assets->resolveArray((array)$request->input('sources', []));
+        $assets = $this->assets
+            ->resolveArray((array)$request->input('sources', []))
+            ->assets();
 
         return response(
             $this->renderer->styles( $assets ),
