@@ -78,8 +78,8 @@ class ComponentLibrary
     public function __call($method, array $arguments)
     {
         return $this->component(
-            snake_case($method, '-'),
-            array_get($arguments, 1, [])
+            lcfirst(studly_case($method)),
+            $arguments
         );
     }
 
