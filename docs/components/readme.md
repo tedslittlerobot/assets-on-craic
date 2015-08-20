@@ -1,7 +1,7 @@
 Components
 ==========
 
-### Installation
+## Installation
 
 Add the following to your app/Providers folder:
 
@@ -33,7 +33,7 @@ And add it to your services providers array in `config/app.php`:
         App\Providers\ComponentServiceProvider::class,
 ```
 
-### Adding a Component
+## Adding a Component
 
 Make a new class - let's say `App\Components\Button` for a simple example.
 
@@ -76,7 +76,7 @@ Now you can use the button component in your views:
 This will render the button view.
 
 
-#### Adding data
+### Adding data
 
 Let's say the button view expects a `$title` and `$link` variable. We can simply change our view code to:
 
@@ -85,7 +85,7 @@ Let's say the button view expects a `$title` and `$link` variable. We can simply
 
 ```
 
-#### Default data
+### Default data
 
 But what if we wanted `$title` to be optional - we can add a default value in the `Button` class:
 
@@ -106,7 +106,7 @@ class Button implements Htmlable {
 }
 ```
 
-### Wrapping Content
+## Wrapping Content
 
 You can define some content for a component as well. Let's say we have a `sidebar` component:
 
@@ -126,7 +126,7 @@ The view for the sidebar component will be passed the wrapped content as a `$con
 
 NB - at present, you cannot nest wrapped components.
 
-#### Scope and options when wrapping content
+### Scope and options when wrapping content
 
 Here is an example to demonstrate these points:
 
@@ -150,9 +150,9 @@ The wrapped content will have the scope of the surrounding environment (ie. not 
 
 Inside the wrapped block, you can use the `$component` variable to pass other values to the component, just like you could in the basic example above. So the sidebar's view will be passed a `$colour` variable, with the value pink.
 
-### Advanced
+## Advanced
 
-#### IOC
+### IOC
 
 Components are always resolved out of the IOC container, so you can add any dependancies to the constructor. So the following has laravel's auth / guard injected into it, and uses it to pass the `$user` variable to the view.
 
@@ -171,7 +171,7 @@ class Button {
 }
 ```
 
-#### Escaping
+### Escaping
 
 You may have noticed the above examples implement `Htmlable` (the `ComponentTrait` has the necessary code to fulfill this). This means that you can use regular `{{}}` blade brackets for components. As they are likely to alway contain html, they are responsible for escaping anything else inside them. This is how you would probably expect this to work.
 
