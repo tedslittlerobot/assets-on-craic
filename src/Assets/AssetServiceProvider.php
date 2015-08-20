@@ -69,6 +69,9 @@ class AssetServiceProvider extends ServiceProvider
         $this->app->singleton(AssetCollection::class, function() {
             return $this->app->make(AssetCollection::class);
         });
+
+        $this->app->alias(ActiveAssetCollection::class, 'assets.active');
+        $this->app->alias(AssetCollection::class, 'assets');
     }
 
 }
