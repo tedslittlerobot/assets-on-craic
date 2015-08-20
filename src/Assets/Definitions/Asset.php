@@ -1,6 +1,6 @@
 <?php
 
-namespace Tlr\Assets\Assets\Definitions;
+namespace Tlr\Display\Assets\Definitions;
 
 class Asset
 {
@@ -29,7 +29,7 @@ class Asset
      * Add an asset dependancy
      *
      * @param  string|array $names
-     * @return \Tlr\Assets\Assets\Definitions\Asset
+     * @return \Tlr\Display\Assets\Definitions\Asset
      */
     public function dependsOn($names)
     {
@@ -41,7 +41,7 @@ class Asset
     /**
      * Add a script
      *
-     * @return \Tlr\Assets\Assets\Definitions\Batch
+     * @return \Tlr\Display\Assets\Definitions\Batch
      */
     public function script()
     {
@@ -51,7 +51,7 @@ class Asset
     /**
      * Add a style
      *
-     * @return \Tlr\Assets\Assets\Definitions\Batch
+     * @return \Tlr\Display\Assets\Definitions\Batch
      */
     public function style()
     {

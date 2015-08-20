@@ -1,6 +1,6 @@
 <?php
 
-namespace Tlr\Assets\Components\Traits;
+namespace Tlr\Display\Components\Traits;
 
 trait ViewComponentTrait
 {

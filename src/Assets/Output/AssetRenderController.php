@@ -1,10 +1,10 @@
 <?php
 
-namespace Tlr\Assets\Assets;
+namespace Tlr\Display\Assets;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Tlr\Assets\Assets\AssetRenderer;
+use Tlr\Display\Assets\AssetRenderer;
 
 class AssetRenderController extends Controller
 {
@@ -12,7 +12,7 @@ class AssetRenderController extends Controller
     /**
      * The asset renderer
      *
-     * @var \Tlr\Assets\Assets\AssetRenderer
+     * @var \Tlr\Display\Assets\AssetRenderer
      */
     protected $renderer;
 

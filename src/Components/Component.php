@@ -1,8 +1,8 @@
 <?php
 
-namespace Tlr\Assets\Components;
+namespace Tlr\Display\Components;
 
-use Tlr\Assets\Components\Traits\ComponentTrait;
+use Tlr\Display\Components\Traits\ComponentTrait;
 
 abstract class Component
 {

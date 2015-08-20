@@ -57,5 +57,5 @@ class FluentComponentTest extends PHPUnit_Framework_TestCase {
 }
 
 class FluentComponentTest_ComponentInstance {
-    use Tlr\Assets\Components\Traits\FluentComponentTrait;
+    use Tlr\Display\Components\Traits\FluentComponentTrait;
 }

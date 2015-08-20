@@ -1,9 +1,9 @@
 <?php
 
-namespace Tlr\Assets\Components;
+namespace Tlr\Display\Components;
 
 use Illuminate\Contracts\Container\Container;
-use Tlr\Assets\Components\AssetManager;
+use Tlr\Display\Components\AssetManager;
 
 class ComponentLibrary
 {
@@ -18,7 +18,7 @@ class ComponentLibrary
     /**
      * The asset manager instance
      *
-     * @var \Tlr\Assets\Components\AssetManager
+     * @var \Tlr\Display\Components\AssetManager
      */
     protected $assets;
 
@@ -41,7 +41,7 @@ class ComponentLibrary
      *
      * @param  string $name
      * @param  string $class
-     * @return \Tlr\Assets\Components\ComponentLibrary
+     * @return \Tlr\Display\Components\ComponentLibrary
      */
     public function register($name, $class)
     {

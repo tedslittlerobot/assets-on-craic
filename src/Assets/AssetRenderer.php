@@ -1,10 +1,10 @@
 <?php
 
-namespace Tlr\Assets\Assets;
+namespace Tlr\Display\Assets;
 
 use Assetic\Asset\AssetCollection as Assetic;
 use Assetic\Asset\StringAsset;
-use Tlr\Assets\Assets\Definitions\Asset;
+use Tlr\Display\Assets\Definitions\Asset;
 
 class AssetRenderer
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Tlr\Assets\Assets\Output;
+namespace Tlr\Display\Assets\Output;
 
 use Illuminate\Contracts\Routing\UrlGenerator;
-use Tlr\Assets\Assets\Components\AssetManager;
+use Tlr\Display\Assets\Components\AssetManager;
 
 class TagGenerator
 {
@@ -11,7 +11,7 @@ class TagGenerator
     /**
      * The asset manager instnace
      *
-     * @var \Tlr\Assets\Assets\Components\AssetManager
+     * @var \Tlr\Display\Assets\Components\AssetManager
      */
     protected $assets;
 

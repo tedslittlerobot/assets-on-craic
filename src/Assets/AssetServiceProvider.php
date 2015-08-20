@@ -1,6 +1,6 @@
 <?php
 
-namespace Tlr\Assets\Assets;
+namespace Tlr\Display\Assets;
 
 use Illuminate\Support\ServiceProvider;
 

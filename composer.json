@@ -1,5 +1,5 @@
 {
-    "name": "tlr/assets-on-craic",
+    "name": "tlr/display-suite",
     "description": "PHP Assets",
     "license": "MIT",
     "authors": [
@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Tlr\\Assets\\": "src"
+            "Tlr\\Display\\": "src"
         }
     },
     "require": {

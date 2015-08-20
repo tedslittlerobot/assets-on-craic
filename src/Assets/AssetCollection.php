@@ -1,8 +1,8 @@
 <?php
 
-namespace Tlr\Assets\Assets;
+namespace Tlr\Display\Assets;
 
-use Tlr\Assets\Assets\Definitions\Asset;
+use Tlr\Display\Assets\Definitions\Asset;
 
 class AssetCollection
 {
@@ -46,7 +46,7 @@ class AssetCollection
      * Get the config options for an asset
      *
      * @param  string $name
-     * @return \Tlr\Assets\Assets\Definitions\Asset
+     * @return \Tlr\Display\Assets\Definitions\Asset
      */
     public function get($name)
     {
@@ -73,7 +73,7 @@ class AssetCollection
      * Get a cached value
      *
      * @param  string $name
-     * @return \Tlr\Assets\Assets\Definitions\Asset
+     * @return \Tlr\Display\Assets\Definitions\Asset
      */
     public function getCached($name)
     {
@@ -84,7 +84,7 @@ class AssetCollection
      * Resolve and cache the given asset
      *
      * @param  string $name
-     * @return \Tlr\Assets\Assets\Definitions\Asset
+     * @return \Tlr\Display\Assets\Definitions\Asset
      */
     public function resolve($name)
     {

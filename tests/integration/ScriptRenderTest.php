@@ -1,9 +1,9 @@
 <?php
 
 use Mockery as m;
-use Tlr\Assets\Assets\AssetCollection;
-use Tlr\Assets\Assets\AssetRenderer;
-use Tlr\Assets\Assets\AssetResolver;
+use Tlr\Display\Assets\AssetCollection;
+use Tlr\Display\Assets\AssetRenderer;
+use Tlr\Display\Assets\AssetResolver;
 
 class ScriptRenderTest extends PHPUnit_Framework_TestCase {
 

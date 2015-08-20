@@ -1,8 +1,8 @@
 <?php
 
-namespace Tlr\Assets\Assets;
+namespace Tlr\Display\Assets;
 
-use Tlr\Assets\Assets\AssetCollection;
+use Tlr\Display\Assets\AssetCollection;
 
 class ActiveAssetCollection
 {
@@ -10,7 +10,7 @@ class ActiveAssetCollection
     /**
      * The asset collection instance
      *
-     * @var \Tlr\Assets\Assets\AssetCollection
+     * @var \Tlr\Display\Assets\AssetCollection
      */
     protected $assets;
 
