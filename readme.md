@@ -24,7 +24,8 @@ Super basic roadmap:
 - [ ] validation on components (required values, etc.)
 - [ ] use a tidier way of calling things (like facades or blade tags instead of app('deps') calls)
 - [ ] recursive component wrapping
-- [ ] allow multiple "active" sources
+- [ ] allow multiple "active" sources (ie. activeAssetBag, that has many activeAsset collections, with a defualt one - like errors in views in laravel)
+- [ ] component types, and allow namespacing of component types to clearly define / separate high level and low level components (similar to atoms, molecules, etc.)
 - [ ] svg ( put into symbols - https://github.com/jkphl/svg-sprite / https://github.com/w0rm/gulp-svgstore, inject into head, or link to import )
 - [ ] images ( imagemin, sprites? )
 - [ ] fonts ( is there something useful we can do with fonts? )
