@@ -15,6 +15,18 @@ class ComponentServiceProvider extends ServiceProvider
     protected $components = [];
 
     /**
+     * Boot the service
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $bladeCompiler = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
+
+        (new ComponentBladeExtender)->register($bladeCompiler);
+    }
+
+    /**
      * Register the component library classes
      *
      * @return void

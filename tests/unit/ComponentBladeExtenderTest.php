@@ -16,7 +16,7 @@ class BladeCompilerTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testOpeningTag() {
-        (new Tlr\Display\Components\BladeCompilerExtensions)->register($this->compiler);
+        (new Tlr\Display\Components\ComponentBladeExtender)->register($this->compiler);
 
         $this->assertEquals(
             file_get_contents(__DIR__ . '/fixtures/compiled.php'),
