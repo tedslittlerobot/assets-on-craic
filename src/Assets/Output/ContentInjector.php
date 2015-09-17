@@ -3,9 +3,11 @@
 namespace Tlr\Display\Assets\Output;
 
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Tlr\Display\Assets\AssetRenderer;
+use Tlr\Display\Assets\AssetResolver;
 use Tlr\Display\Assets\Components\AssetManager;
 
-class TagGenerator
+class TagInjector
 {
 
     /**
@@ -18,34 +20,42 @@ class TagGenerator
     /**
      * The url generator instnace
      *
-     * @var \Illuminate\Contracts\Routing\UrlGenerator
+     * @var \Tlr\Display\Assets\AssetResolver
      */
-    protected $url;
+    protected $resolver;
 
-    public function __construct(AssetManager $assets, UrlGenerator $url)
+    /**
+     * The url generator instnace
+     *
+     * @var \Tlr\Display\Assets\AssetRenderer
+     */
+    protected $resolver;
+
+    public function __construct(AssetManager $assets, AssetResolver $resolver, AssetRenderer $renderer)
     {
         $this->assets = $assets;
-        $this->url = $url;
+        $this->resolver = $resolver;
+        $this->renderer = $renderer;
     }
 
     /**
-     * Generate a script tag
+     * Generate script output
      *
      * @return string
      */
-    public function scripts()
+    public function scripts($domain = 'default', array $options = [])
     {
-        return $this->tag('<script src="%s"></script>', 'assets.js');
+        return '<script>' . $this->renderer->scripts( $this->resolve(), $domain ) . '</script>';
     }
 
     /**
-     * Generate a style tag
+     * Generate style output
      *
      * @return string
      */
-    public function styles()
+    public function styles($domain = 'default', array $options = [])
     {
-        return $this->tag('<link rel="stylesheet" href="%s" />', 'assets.css');
+        return '<style>' . $this->renderer->styles( $this->resolve(), $domain ) . '</style>';
     }
 
     /**
@@ -55,14 +65,12 @@ class TagGenerator
      * @param  string $route
      * @return string
      */
-    public function tag($format, $route)
+    public function resolve()
     {
-        $url = $this->route(
-            $route,
-            $this->assets->active()
-        );
-
-        return sprintf($format, $url);
+        return $this->resolver
+            ->clear()
+            ->resolveArray($this->assets->active())
+            ->assets();
     }
 
     /**
