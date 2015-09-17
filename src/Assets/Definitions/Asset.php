@@ -9,14 +9,18 @@ class Asset
      *
      * @var array
      */
-    protected $scripts = [];
+    protected $scripts = [
+        'default' => [],
+    ];
 
     /**
      * The styles
      *
      * @var array
      */
-    protected $styles = [];
+    protected $styles = [
+        'default' => [],
+    ];
 
     /**
      * The asset's dependancies
@@ -43,9 +47,9 @@ class Asset
      *
      * @return \Tlr\Display\Assets\Definitions\Batch
      */
-    public function script()
+    public function script($domain = 'default')
     {
-        return $this->scripts[] = new Batch;
+        return $this->scripts[$domain][] = new Batch;
     }
 
     /**
@@ -53,15 +57,15 @@ class Asset
      *
      * @return \Tlr\Display\Assets\Definitions\Batch
      */
-    public function style()
+    public function style($domain = 'default')
     {
-        return $this->styles[] = new Batch;
+        return $this->styles[$domain][] = new Batch;
     }
 
     /**
      * Get the asset's dependancies
      *
-     * @return mixed
+     * @return array
      */
     public function dependancies()
     {
@@ -71,20 +75,20 @@ class Asset
     /**
      * Get the asset's scripts
      *
-     * @return mixed
+     * @return array
      */
-    public function scripts()
+    public function scripts($domain = 'default')
     {
-        return $this->scripts;
+        return array_get($this->scripts, $domain, []);
     }
 
     /**
      * Get the asset's styles
      *
-     * @return mixed
+     * @return array
      */
-    public function styles()
+    public function styles($domain = 'default')
     {
-        return $this->styles;
+        return array_get($this->styles, $domain, []);
     }
 }

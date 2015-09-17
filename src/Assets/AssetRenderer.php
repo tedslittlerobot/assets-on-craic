@@ -16,10 +16,10 @@ class AssetRenderer
      * @param  array $assets
      * @return string|\Assetic\Asset\StringAsset
      */
-    public function scripts($assets)
+    public function scripts($assets, $domain = 'default')
     {
         return $this->finishScripts(
-            $this->processAssetList((array)$assets, 'scripts')
+            $this->processAssetList((array)$assets, 'scripts', $domain)
         );
     }
 
@@ -29,10 +29,10 @@ class AssetRenderer
      * @param  array $assets
      * @return string|\Assetic\Asset\StringAsset
      */
-    public function styles($assets)
+    public function styles($assets, $domain = 'default')
     {
         return $this->finishStyles(
-            $this->processAssetList((array)$assets, 'styles')
+            $this->processAssetList((array)$assets, 'styles', $domain)
         );
     }
 
@@ -69,14 +69,15 @@ class AssetRenderer
      *
      * @param  array  $assets
      * @param  string $type
+     * @param  string $domain
      * @return array
      */
-    public function processAssetList(array $assets, $type)
+    public function processAssetList(array $assets, $type, $domain)
     {
         $outputs = [];
 
         foreach ((array)$assets as $asset) {
-            foreach ($this->processBatches($asset->{$type}()) as $compiled) {
+            foreach ($this->processBatches($asset->{$type}($domain)) as $compiled) {
                 $outputs[] = $compiled;
             }
         }
